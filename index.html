@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>glass morphic form</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            transition: all .2s linear;
+        }
+        .form-container{
+            min-height: 100vh;
+            width:100vw;
+            display:flex;
+            align-items:center;
+            justify-content: center;
+            background: url(bg.jpg)no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .form-container form{
+        height:450px;
+        width: 350px;
+        background:rgba(255,255,255,.7);
+        text-align: center;
+        border-radius:5px;
+         box-shadow:0 5px 15px rgba(0,0,0,.3);
+         border-top:1px solid rgba(255,255,255,.3);
+         border-left:1px solid rgba(255,255,255,.3);
+         backdrop-filter:blur(10px);
+         transform-style:preserve-3d;
+        }
+        .form-container form h3{
+            font-size:30px;
+            padding:30px 0;
+            color:#ccc;
+            letter-spacing: 3px;
+        }
+        
+        .form-container form i{
+            padding:0 5 px;
+            font-size: 20px;
+            color:#bbb;
+        }
+        
+       .form-container form input{
+            outline:none;
+            border:none;
+            height:40px;
+            width:83%;
+            background:rgba(0,0,0,.1);
+            color:rgba(255,255, 255, .7);
+            box-shadow: 0 0 5px rgba(0,0,0,.3)inset;
+            font-size:17px;
+            padding:0 10px;
+            margin : 15px 0;
+            letter-spacing: 1px;
+        }
+        .form-container form input[type="submit"]{
+            width:90%;
+            cursor:pointer;
+            background:linear-gradient(90deg,black,blueviolet);
+            margin-top:30px;
+            border-radius:50px;
+        }
+        .form-container form input[type="submit"]:hover{
+           letter-spacing: 1px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+       <form action="" id="form">
+        <h3>Login</h3>
+        <i class="fas fa-user"></i>
+        <input type="text" placeholder="username">
+        <i class="fas fa-at"></i>
+        <input type="email" placeholder="Email">
+        <i class="fas fa-lock"></i>
+        <input type="password" placeholder="password">
+          <input type="submit" value="Login">
+       </form>
+
+    </div>
+
+    <script>
+       var form=document.getElementById('form');
+       form.addEventListener('mousemove',(e)=>{
+            var x=(window.innerWidth/2-e.pageX)/12;
+            var y=(window.innerHeight/2-e.pageY)/12;
+            form.style.transform='rotateX(' + x + 'deg) rotateY(' + y + 'deg)'
+
+       });
+       form.addEventListener('mouseleave',function(){
+        form.style.transform='rotateX(0deg) rotateY(0deg)'
+       })
+
+    </script>
+</body>
+</html>
+
+
+
